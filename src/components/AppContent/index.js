@@ -58,7 +58,7 @@ function AppContent(){
         For organizations like yours
         </Typography.Title>
         <Space direction="horizontal">
-            <Card style={{borderLeft:"2px solid blue"}}>
+            <Card style={{borderLeft:"2px solid blue",borderRadius:0}}>
             <Space direction="horizontal">
             <FileTextOutlined size="large" style={{fontSize:50,color:"blue"}}/>
             <Typography.Title level={4} style={{margin:0}}>
@@ -67,7 +67,7 @@ function AppContent(){
             </Typography.Title>
             </Space>
             </Card>
-            <Card style={{borderLeft:"2px solid navy"}}>
+            <Card style={{borderLeft:"2px solid navy",borderRadius:0}}>
             <Space direction="horizontal">
             <TeamOutlined size="large" style={{fontSize:50,color:"blue"}}/>
             <Typography.Title level={4} style={{margin:0}}>
@@ -76,7 +76,7 @@ function AppContent(){
             </Typography.Title>
             </Space>
             </Card>
-            <Card style={{borderLeft:"2px solid blue"}}>
+            <Card style={{borderLeft:"2px solid blue",borderRadius:0}}>
             <Space direction="horizontal">
             <AntCloudOutlined size="large" style={{fontSize:50,color:"blue"}}/>
             <Typography.Title level={4} style={{margin:0}}>
@@ -89,7 +89,7 @@ function AppContent(){
         <Typography.Title level={3}>
         Your organization
         </Typography.Title>
-        <Button icon={<UserOutlined />} type="text"size="large" style={{borderBottom:"2px solid blue"}}shape="rectangle">Users </Button>
+        <Button icon={<UserOutlined />} type="text"size="large" style={{borderBottom:"2px solid blue",borderRadius:0}}shape="rectangle">Users </Button>
         <Button icon={<TeamOutlined />} type="text"size="large">Teams</Button>
         <Button icon={<CreditCardOutlined />} type="text"size="large">Subscription</Button>
         <Button icon={<BookOutlined />} type="text"size="large">Learn</Button>

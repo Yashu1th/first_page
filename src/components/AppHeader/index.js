@@ -1,4 +1,4 @@
-import {Button,Drawer, Space, Typography} from "antd";
+import {Button,Drawer, Space, Typography,Input} from "antd";
 import React, { useState } from 'react';
 import {UnorderedListOutlined,UserDeleteOutlined,KeyOutlined,SearchOutlined,CodeOutlined,MobileOutlined,SettingOutlined,DownCircleOutlined,QuestionCircleOutlined,StopOutlined } from '@ant-design/icons';
 function AppHeader(){
@@ -18,7 +18,7 @@ function AppHeader(){
     Microsoft 365 admin center
     </div>
     <div className="srch">
-    <Button icon={<SearchOutlined />} >Search</Button>
+    <Input addonBefore={<SearchOutlined style={{backgroundColor:""}}/>} placeholder="Search " />
     </div>
     <div className="grp">
     <CodeOutlined /> &nbsp;&nbsp;&nbsp;&nbsp;
