@@ -1,0 +1,23 @@
+.App{
+  display:flex;
+  flex-direction:column;
+  width:100vw;
+  height:100vh;
+}
+.AppHeader{
+    height:35px;
+    background-color: #474644;
+    color:#fafafa;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.AppFooter{
+
+}
+.SideMenu{
+
+}
+.AppContent{
+
+}
