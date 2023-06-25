@@ -94,10 +94,10 @@ function AppContent(){
         <Button icon={<CreditCardOutlined />} type="text"size="large">Subscription</Button>
         <Button icon={<BookOutlined />} type="text"size="large">Learn</Button>
         <Button icon={<FormOutlined />} type="text"size="large">Set up</Button><br/>
-        <p style={{color:"#464644"}}>
+        <h5 style={{color:"#464644"}}>
         Manage who can access apps and services included in your Microsoft 365 Subscriptions.<br/>
         Add or remove users, manage licenses and reset passwords.
-        </p>
+        </h5>
         <hr/>
         <Button icon={<PlusOutlined style={{color:"blue"}}/>} type="text"size="large">Add user</Button>&nbsp;&nbsp;&nbsp;
         <Button icon={<KeyOutlined style={{color:"blue"}}/>} size="large"type="text">Reset password</Button>
