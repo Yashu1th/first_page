@@ -1,7 +1,26 @@
-import { Card,Space,Button,Typography,Table } from "antd";
+import { Card,Space,Button,Typography,Table,Drawer } from "antd";
+import React, { useState } from 'react';
 // import{useState} from "react";
-import{PlusOutlined,KeyOutlined,AntCloudOutlined,FileTextOutlined,FormOutlined,BookOutlined,CreditCardOutlined,TeamOutlined,UserOutlined}from "@ant-design/icons"
+import{PlusOutlined,KeyOutlined,AntCloudOutlined,FileTextOutlined,FormOutlined,BookOutlined,CreditCardOutlined,TeamOutlined,UserOutlined,StopOutlined,UserDeleteOutlined}from "@ant-design/icons";
+var nm,unm,bn,al,fn,ln;
 function AppContent(){
+  const [open, setOpen] = useState(false);
+    const showDrawer = (name,username) => {
+      nm=name;
+      unm=username;
+      al=username.slice(0,username.indexOf("."));
+      fn=name.slice(0,name.indexOf(" "));
+      ln=name.slice(name.indexOf(" "));
+      bn=fn.slice(0,1).concat(ln.slice(1,2));
+      console.log(fn);
+      console.log(ln);
+      console.log(username);
+        setOpen(true);
+      };
+    
+      const onClose = () => {
+        setOpen(false);
+      };
     const dataSource = [
         {
           key: '1',
@@ -24,7 +43,7 @@ function AppContent(){
           {
             key: '4',
             Name: 'Swapna Swapna',
-            Username : 'swapna@nxtdiv.onmicrosoft.com',
+            Username : 'swapna@nxtdiv.com',
             Licenses: 'Unlicensed',
           },
       ];
@@ -102,7 +121,77 @@ function AppContent(){
         
         <Button icon={<PlusOutlined style={{color:"blue"}}/>} type="text"size="large">Add user</Button>&nbsp;&nbsp;&nbsp;
         <Button icon={<KeyOutlined style={{color:"blue"}}/>} size="large"type="text">Reset password</Button>
-        <Table columns={columns} dataSource={dataSource} />
+        <Table columns={columns} dataSource={dataSource} onSelect={showDrawer} onRow={(record, rowIndex) => {
+          return {
+            onClick: (event) => {showDrawer(record.Name,record.Username)},}}} style={{
+              cursor: "pointer"}}/>
+
+        <Drawer  placement="right" onClose={onClose} open={open} width={600}>
+        <Space>
+        <Button type="primary" shape="circle" value="large"style={{fontSize:50,width:100,height:100}}>{bn}</Button>
+        <Typography.Title level={1} style={{margin:0}}>
+        {nm} <br/>
+        <Button icon={<KeyOutlined style={{color:"blue"}}/>} type="text">Reset password</Button>
+        <Button icon={<StopOutlined style={{color:"blue"}}/>} type="text">Block sign-in</Button>
+        <Button icon={<UserDeleteOutlined style={{color:"blue"}}/>} type="text">Delete user</Button>
+        </Typography.Title>
+        </Space>
+        <Space>
+        <Typography.Title level={5}style={{color:"",borderBottom:"2px solid blue"}}>Account</Typography.Title>&nbsp;&nbsp;
+        <Typography.Title level={5}>Licenses and Apps</Typography.Title>
+        </Space>
+        <br/>
+        <Space>
+        <Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Username and email</Typography.Title>
+        <Typography.Title level={5} style={{margin:0,padding:0,color:"#474644"}}>{unm}</Typography.Title>
+        <Typography.Title level={5} style={{color:"blue",margin:0,padding:0}}>Manage username and email</Typography.Title>
+        </Space>&nbsp;&nbsp;&nbsp;
+        <Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Aliases</Typography.Title>
+        <Typography.Title level={5} style={{margin:0,padding:0,color:"#474644"}}>{al}.onmicrosoft.com</Typography.Title>
+        <Typography.Title level={5} style={{color:"blue",margin:0,padding:0}}>Manage username and email</Typography.Title>
+        </Space>
+        </Space><br/><br/>
+        <Space>
+        <Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Groups</Typography.Title>
+        <Typography.Title level={5} style={{margin:0,padding:0,color:"#474644"}}></Typography.Title>
+        <Typography.Title level={5} style={{color:"blue",margin:0,padding:0}}>Manage groups</Typography.Title>
+        </Space>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Roles</Typography.Title>
+        <Typography.Title level={5} style={{margin:0,padding:0,color:"#474644"}}>No administrator access</Typography.Title>
+        <Typography.Title level={5} style={{color:"blue",margin:0,padding:0}}>Manage roles</Typography.Title>
+        </Space>
+        </Space><br/>
+        <br/><Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Manager</Typography.Title>
+        <Typography.Title level={5} style={{margin:0,padding:0,color:"#474644"}}>None provided</Typography.Title>
+        <Typography.Title level={5} style={{color:"blue",margin:0,padding:0}}>Add manager </Typography.Title>
+        </Space><br/><br/>
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Contact information</Typography.Title>
+        <Space>
+        <Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Display name</Typography.Title>
+        <Typography.Title level={5} style={{margin:0,padding:0,color:"#474644"}}>{nm}</Typography.Title>
+        </Space>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>First name</Typography.Title>
+        <Typography.Title level={5} style={{margin:0,padding:0,color:"#474644"}}>{fn}</Typography.Title>
+        </Space>
+        </Space><br/><br/>
+        <Space>
+        <Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Phone number</Typography.Title>
+        <Typography.Title level={5} style={{color:"blue",margin:0,padding:0}}>Manage contact information</Typography.Title>
+        </Space>&nbsp;&nbsp;&nbsp;
+        <Space direction="vertical">
+        <Typography.Title level={5} style={{margin:0,padding:0}}>Last name</Typography.Title>
+        <Typography.Title level={5} style={{margin:0,padding:0,color:"#474644"}}>{ln}</Typography.Title>
+        </Space>
+        </Space>
+      </Drawer>
         </div>
     );
 }
